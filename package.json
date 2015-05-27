@@ -1,0 +1,38 @@
+{
+  "name"        : "clever-class",
+  "description" : "Lightning-fast flexible class prototype",
+  "version"     : "1.0.0",
+  "license"     : "MIT",
+  "main"        : "index",
+  "author": {
+    "name"      : "CleverStack",
+    "email"     : "admin@cleverstack.io",
+    "web"       : "http://cleverstack.io"
+  },
+  "collaborators": [
+    "Richard Gustin <richard.gustin86@gmail.com>"
+  ],
+  "repository": {
+    "type"      : "git",
+    "url"       : "git://github.com/CleverStack/clever-class.git"
+  },
+  "bugs": {
+    "url"       : "https://github.com/CleverStack/clever-class/issues"
+  },
+  "scripts": {
+    "test"      : "grunt test:unit"
+  },
+  "dependencies": {
+    "babel"     : "^5.4.2"
+  },
+  "devDependencies": {
+
+  },
+  "keywords": [
+    "class",
+    "prototypical",
+    "inheritance",
+    "es6",
+    "cleverstack"
+  ]
+}
