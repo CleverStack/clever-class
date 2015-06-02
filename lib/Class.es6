@@ -1,8 +1,14 @@
-var EventEmitter = require('events').EventEmitter
-  , util         = require('util')
-  , curry        = require('./curry.es6')
-  , debug        = require('debug')('cleverstack:class');
+import util           from 'util';
+import curry          from './curry.es6';
+import {EventEmitter} from 'events';
+import underscore     from 'underscore';
 
+function StaticEmitter(Klass) {
+  underscore.extend(Klass, EventEmitter.prototype);
+  EventEmitter.call(Klass);
+}
+
+// @StaticEmitter
 class Class extends EventEmitter {
   static proxy = curry;
   constructor() {
@@ -10,9 +16,6 @@ class Class extends EventEmitter {
   }
 }
 
-util.inherits(Class, EventEmitter);
-EventEmitter.call(Class);
-
 Class.prototype.proxy = curry;
 
-module.exports        = Class;
+module.exports = Class;
