@@ -23,7 +23,7 @@
     "test": "grunt test:unit"
   },
   "dependencies": {
-    "babel": "^5.4.2"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
