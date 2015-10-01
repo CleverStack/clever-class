@@ -1,5 +1,5 @@
 import util           from 'util';
-import curry          from './curry.es6';
+import curry          from './curry.js';
 import {EventEmitter} from 'events';
 import underscore     from 'underscore';
 
