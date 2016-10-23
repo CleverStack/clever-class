@@ -1,21 +1,23 @@
-import util           from 'util';
-import curry          from './curry.js';
-import {EventEmitter} from 'events';
-import underscore     from 'underscore';
+import util             from 'util';
+import curry            from './curry.js';
+import { EventEmitter } from 'events';
+import { extend }       from 'underscore';
 
-function StaticEmitter(Klass) {
-  underscore.extend(Klass, EventEmitter.prototype);
-  EventEmitter.call(Klass);
-}
-
-// @StaticEmitter
-class Class extends EventEmitter {
-  static proxy = curry;
-  constructor() {
-    super();
+export function StaticEmitter() {
+  return (WrappedClass) => {
+    extend(WrappedClass, Object.create(EventEmitter.prototype))
+    EventEmitter.call(WrappedClass)
   }
 }
 
-Class.prototype.proxy = curry;
+@StaticEmitter()
+export class Class extends EventEmitter {
+  static proxy(...args) {
+    return curry.apply(this, args)
+  }
+  proxy(...args) {
+    return curry.apply(this, args)
+  }
+}
 
-module.exports = Class;
+export default Class;
